@@ -1,0 +1,68 @@
+\documentclass[11pt]{book}    
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\parindent0pt  \parskip10pt             % make block paragraphs
+\raggedright                            % do not right justify
+
+\title{\bf LeetCode Solutions}    % Supply information
+\author{Sankalp Sangle}              %   for the title page.
+\date{Last updated on \today}                           %   Use current date. 
+
+% Note that book class by default is formatted to be printed back-to-back.
+\begin{document}                        % End of preamble, start of text.
+\frontmatter                            % only in book class (roman page #s)
+\maketitle                              % Print title page.
+\tableofcontents                        % Print table of contents
+\mainmatter                             % only in book class (arabic page #s)
+
+\part{LeetCode Top Interview Questions}                   % Print a "part" heading
+
+\chapter{Easy}                % Print a "chapter" heading
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-easy/}{LeetCode Top Interview Questions: Easy section}. 
+
+\section{Arrays}                  % Print a "section" heading
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/}{Arrays}
+
+\subsection{26. Remove Duplicates from Sorted Array}
+\href{https://leetcode.com/problems/remove-duplicates-from-sorted-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/332869256/}{Link to submission}
+\paragraph{Concepts}
+Two pointer
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a read pointer and a write pointer, both starting from zero.
+    \item Advance the write pointer until you see a new value or reach end of array.
+    \item Write value at write location into read location.
+    \item Return read.
+\end{itemize}
+
+\subsection{122. Best Time to Buy and Sell Stock II}
+\href{https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/}{Link to question},
+\href{https://leetcode.com/submissions/detail/332894775/}{Link to submission}
+\paragraph{Concepts} Greedy
+
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Construct a consecutive elements difference array
+    \item Return sum of all positive elements in difference array
+\end{itemize}
+
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
+ 
+\end{document}                          % The required last line

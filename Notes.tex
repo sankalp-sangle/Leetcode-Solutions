@@ -132,15 +132,79 @@ Array
     \item Finally, if carry is not zero, insert carry at start of array
 \end{itemize}
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\subsection{283. Move Zeroes}
+\href{https://leetcode.com/problems/move-zeroes/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333138944/}{Link to submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a read and a write pointer, both initialized to 0
+    \item if read end has zero, increment read end
+    \item else, copy read end to write end and increment both
+    \item After read end reaches end, set all numbers from write end to end as 0
+\end{itemize}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\subsection{1. Two Sum}
+\href{https://leetcode.com/problems/two-sum/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333142473/}{Link to submission approach 1},
+\href{https://leetcode.com/submissions/detail/333144602/}{Link to submission approach 2}
+\paragraph{Concepts}
+Hash Table, Two Pointer
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Create an element:indices mapping
+    \item Sort the array
+    \item Use two pointers to search for a particular sum
+    \item Once you find the sum, pop index from left pointer, and pop index from right pointer
+    \item Return indices
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Create a hashmap of int, int
+    \item Iterate the array with i as looping variable
+    \item If element in hashmap, return (hashmap[element], i)
+    \item Else insert hashmap[target - element] = i
+\end{itemize}
+
+\subsection{36. Valid Sudoku}
+\href{https://leetcode.com/problems/valid-sudoku/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333176948/}{Link to submission}
+\paragraph{Concepts}
+Hash Table, Set
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Create sets to hold numbers for each row, col and square.
+    \item Traverse the sudoku
+    \item If a number is already in the row, col, square, return False
+    \item Else, come out of loop and return true
+\end{itemize}
+
+\subsection{48. Rotate Image}
+\href{https://leetcode.com/problems/rotate-image/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333188499/}{Link to submission}
+\paragraph{Concepts}
+Array, Circular Permutation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Do a counterclockwise circular permutation as mentioned in solution
+    \item Pure implementation problem. No algorithmic skill.
+\end{itemize}
+
+\newpage
+
+\section{Strings}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/}{Strings}
+
+\subsection{344. Reverse String}
+\href{https://leetcode.com/problems/reverse-string/}{Link to question},
+\href{}{Link to submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item 
+\end{itemize}
 
 % \subsection{}
 % \href{}{Link to question},

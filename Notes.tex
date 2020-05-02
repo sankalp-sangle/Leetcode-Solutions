@@ -54,6 +54,83 @@ Two pointer
     \item Return sum of all positive elements in difference array
 \end{itemize}
 
+\subsection{189. Rotate Array}
+\href{https://leetcode.com/problems/rotate-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333064713/}{Link to submission approach 1},
+\href{https://leetcode.com/submissions/detail/333059899/}{Link to submission approach 2}
+\paragraph{Concepts}
+Cyclic replacements, Implementation
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Maintain a visited array and a pointer initialized to 0
+    \item while pointer + k is not visited, replace arr[pointer + k] with arr[pointer]. Update
+    pointer to pointer + k. Set pointer + k to visited, increment a numberOfChanges variable.
+    \item Increment pointer by 1
+    \item Keep doing this while numberOfChanges less than size of array.
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Reverse the entire array
+    \item Reverse from start to start + k
+    \item Reverse from start + k to end
+\end{itemize}
+
+\subsection{217. Contains Duplicate}
+\href{https://leetcode.com/problems/contains-duplicate/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333069819/}{Link to submission}
+\paragraph{Concepts}
+Hash Table, Set
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize a Set
+    \item For an element in array, if element in Set, return true
+    \item else add element to Set
+    \item If out of loop, return False
+\end{itemize}
+ 
+\subsection{136. Single Number}
+\href{https://leetcode.com/problems/single-number/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333115980/}{Link to submission}
+\paragraph{Concepts}
+Bit Manipulation, XOR
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize an answer variable to 0
+    \item For every element, XOR it to answer. Elements appearing twice get XOR'd out to zero
+    \item Return answer
+\end{itemize}
+
+\subsection{350. Intersection of Two Arrays II}
+\href{https://leetcode.com/problems/intersection-of-two-arrays-ii/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333119654/}{Link to submission approach 1},
+\href{https://leetcode.com/submissions/detail/333123474/}{Link to submission approach 2}
+\paragraph{Concepts}
+Hash Table, Two Pointers
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Form an element:frequency mapping using map for smaller array (to save space)
+    \item Traverse bigger array
+    \item If frequency of element less than 0, add to answer. Decrement frequency
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item If arrays are sorted, use two pointers p1 and p2
+    \item If nums1[p1] == nums2[p2], add to answer and increment both
+    \item Else if nums1[p1] is smaller, increment p1. Else increment p2
+    \item Keep doing until reach end of either array
+\end{itemize}
+
+\subsection{66. Plus One}
+\href{https://leetcode.com/problems/plus-one/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333134799/}{Link to submission}
+\paragraph{Concepts}
+Array
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize a carry variable to 1
+    \item Traverse array from the end. \\ digit[i] = carry + digit mod 10, carry = carry + digit div 10
+    \item Finally, if carry is not zero, insert carry at start of array
+\end{itemize}
 
 % \subsection{}
 % \href{}{Link to question},
@@ -64,5 +141,24 @@ Two pointer
 % \begin{itemize}
 %     \item 
 % \end{itemize}
- 
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
 \end{document}                          % The required last line

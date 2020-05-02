@@ -198,23 +198,64 @@ Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-
 
 \subsection{344. Reverse String}
 \href{https://leetcode.com/problems/reverse-string/}{Link to question},
-\href{}{Link to submission}
+\href{https://leetcode.com/submissions/detail/333295707/}{Link to submission}
 \paragraph{Concepts}
 Two Pointers
 \paragraph{Algorithm description}
 \begin{itemize}
-    \item 
+    \item Set a left pointer to start of string, right pointer to end
+    \item Swap left and right. Increment left, decrement right
+    \item Do while l less than r
 \end{itemize}
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\subsection{7. Reverse Integer}
+\href{https://leetcode.com/problems/reverse-integer/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333300400/}{Link to submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Reverse the integer by converting to a string
+    \item Store result in long
+    \item If stored result is outside integer limits, return 0
+    \item Else return the reversed number
+\end{itemize}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\subsection{387. First Unique Character in a String}
+\href{https://leetcode.com/problems/first-unique-character-in-a-string/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333317093/}{Link to submission}
+\paragraph{Concepts}
+Hash Map
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Construct element frequency mapping
+    \item Traverse the string from the start, if frequency of a char is 1, return index
+    \item If reach end of string, return -1
+\end{itemize}
+
+\subsection{242. Valid Anagram}
+\href{https://leetcode.com/problems/valid-anagram/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333323752/}{Link to submission}
+\paragraph{Concepts}
+Hash Map, Counting Sort
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Traverse through s1, incrementing frequency counts
+    \item Traverse through s2, decrementing frequency counts
+    \item If all counts are zero, return true. Else false.
+\end{itemize}
+
+\subsection{125. Valid Palindrome}
+\href{https://leetcode.com/problems/valid-palindrome/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333333971/}{Link to submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a left and a right pointer
+    \item Before comparing the two, ensure left and right both are pointing to an
+    alphanumeric character
+\end{itemize}
 
 % \subsection{}
 % \href{}{Link to question},

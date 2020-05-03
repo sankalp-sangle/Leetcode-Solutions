@@ -257,6 +257,126 @@ Two Pointers
     alphanumeric character
 \end{itemize}
 
+\subsection{28. Implement strStr()}
+\href{https://leetcode.com/problems/implement-strstr/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333634575/}{Link to Approach 1},
+\href{https://leetcode.com/submissions/detail/333729270/}{Link to Approach 2}
+\paragraph{Concepts}
+Two Pointers, Rabin-Karp Algorithm, Rolling Hash
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Traverse haystack until you find a character matching with first character of
+    needle
+    \item Once match is found, keep checking for further characters 
+    until either there's a mismatch or you reach end of arrays
+    \item Return index accordingly
+\end{itemize}
+\paragraph{Approach 2 description - Rabin-Karp}
+\begin{itemize}
+    \item Hash the needle using a hash function that is easy to be "rolled", that is it is
+    easy to compute hash for next window if hash for previous window is known
+    \item Traverse the haystack using window of length needle.length(). Hash the window and 
+    compare with needle hash. If matched, return the index of start of window
+    \item See implementation carefully, very interesting. Also see LeetCode solution article.
+\end{itemize}
+
+\subsection{38. Count and Say}
+\href{https://leetcode.com/problems/count-and-say/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333834219/}{Link to submission}
+\paragraph{Concepts}
+Recursion, Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Base case: n = 1, return "1"
+    \item Get the answer for n-1
+    \item Traverse through answer of n-1
+    \item For each consecutive list of same elements, add the count, followed by the element
+    \item Return answer
+\end{itemize}
+
+\subsection{14. Longest Common Prefix}
+\href{https://leetcode.com/problems/longest-common-prefix/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333844730/}{Link to submission}
+\paragraph{Concepts}
+Implementation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize answer string to ""
+    \item Find length of smallest string
+    \item For i from 0 to min length - 1
+    \item Traverse through all the characters at ith positions
+    \item If different, return answer
+    \item If same, add character to answer
+\end{itemize}
+
+\newpage
+
+\section{Linked Lists}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/}{Linked Lists}
+
+\subsection{237. Delete Node in a Linked List}
+\href{https://leetcode.com/problems/delete-node-in-a-linked-list/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333854173/}{Link to submission}
+\paragraph{Concepts}
+Trick
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Copy value of next node into current node
+    \item Set next ptr of current node to next ptr of next node
+\end{itemize}
+
+\subsection{19. Remove Nth Node From End of List}
+\href{https://leetcode.com/problems/remove-nth-node-from-end-of-list/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333863765/}{Link to submission}
+\paragraph{Concepts}
+Two Pointer
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item To do it in one pass, let a forward pointer advance n steps
+    \item Then, start forwarding a slow pointer as well as the forward pointer one at a time
+          until forward reaches the end
+    \item delete the slow pointer node
+\end{itemize}
+
+\subsection{206. Reverse Linked List}
+\href{https://leetcode.com/problems/reverse-linked-list/}{Link to question},
+\href{https://leetcode.com/submissions/detail/333870150/}{Link to iterative approach},
+\href{https://leetcode.com/submissions/detail/333909164/}{Link to recursive approach}
+\paragraph{Concepts}
+Implementation
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Initialize a prev = NULL, and a curr = head
+    \item While head is not NULL, do a cyclic swap between curr.next, prev, and curr.
+    \item Return prev
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item If head is NULL or head.next is NULL return head
+    \item l = reversed list for head.next
+    \item head.next.next = head, head.next = NULL. Return l
+\end{itemize}
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}

@@ -357,16 +357,76 @@ Implementation
     \item head.next.next = head, head.next = NULL. Return l
 \end{itemize}
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\subsection{21. Merge Two Sorted Lists}
+\href{https://leetcode.com/problems/merge-two-sorted-lists/}{Link to question},
+\href{https://leetcode.com/submissions/detail/334181938/}{Link to iterative submission},
+\href{https://leetcode.com/submissions/detail/334165928/}{Link to recursive submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description Iterative}
+\begin{itemize}
+    \item Make a dummy node, and let tmp = dummynode
+    \item Keep appending the smaller of the two lists to the dummy node and advance the pointers
+        accordingly
+    \item If one of the lists becomes NULL, append the other list to dummy node
+    \item Return next of tmp
+\end{itemize}
+\paragraph{Algorithm description Recursive}
+\begin{itemize}
+    \item If either of lists is NULL, return the other
+    \item if l1 is smaller, get answer to (l1.next, l2) and set it as l1.next. Return l1
+    \item Else get answer to (l1, l2.next) and set it as l2.next. Return l2
+\end{itemize}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\subsection{234. Palindrome Linked List}
+\href{https://leetcode.com/problems/palindrome-linked-list/}{Link to question},
+\href{https://leetcode.com/submissions/detail/334192848/}{Link to submission}
+\paragraph{Concepts}
+Reverse a linked list, Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Reverse the second half of the linked list
+    \item Compare nodewise the head of linked list and the head of reversed list
+        to check for palindrome
+\end{itemize}
 
+\subsection{141. Linked List Cycle}
+\href{https://leetcode.com/problems/linked-list-cycle/}{Link to question},
+\href{https://leetcode.com/submissions/detail/334195990/}{Link to submission}
+\paragraph{Concepts}
+Hare and Tortoise, Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize a slow and a fast pointer
+    \item Advance slow by 1, fast by 2
+    \item If slow and fast meet, there's a cycle. Else if fast reaches end, there's no cycle.
+\end{itemize}
+
+\newpage
+
+\section{Trees}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-easy/94/trees/}{Trees}
+
+\subsection{104. Maximum Depth of Binary Tree}
+\href{https://leetcode.com/problems/maximum-depth-of-binary-tree/}{Link to question},
+\href{https://leetcode.com/submissions/detail/334227706/}{Link to recursive submission},
+\href{https://leetcode.com/submissions/detail/334260483/}{Link to iterative submission}
+\paragraph{Concepts}
+Recursion, Stack
+\paragraph{Algorithm description Recursive}
+\begin{itemize}
+    \item If root is null, return 0
+    \item Else return 1 + max(maxDepth(left), maxDepth(right))
+\end{itemize}
+\paragraph{Algorithm description Iterative}
+\begin{itemize}
+    \item If root is null, return 0
+    \item Initialize stack holding pair of TreeNode and depth
+    \item Push \{root, 1\}
+    \item While stack is not empty, get top of stack
+    \item If top is leaf, compare with maxDepth
+    \item Push children if any with depth = 1 + parent depth
+\end{itemize}
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}

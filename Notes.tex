@@ -464,31 +464,103 @@ Top-Down
 Top-Down, BFS
 \paragraph{Algorithm description}
 \begin{itemize}
-    \item Push root
+    \item Push root into a queue
     \item At beginning of an iteration, take size of queue
-    \item Pop out size items from queue, while adding their children to queue
+    \item Pop out \#size items from queue, while adding their children to queue
     \item Add to level
+    \item Add level to final answer
 \end{itemize}
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\subsection{108. Convert Sorted Array to Binary Search Tree}
+\href{https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335241263/}{Link to submission}
+\paragraph{Concepts}
+Recursion, Preorder
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item call procedure with left = 0, right = arr.size() - 1
+    \item if left > right, return NULL
+    \item construct node for middle element
+    \item node.left = procedure(left, middle-1), node.right = procedure(middle+1, right)
+    \item return node
+\end{itemize}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\newpage
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\section{Sorting and Searching}
+Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/96/sorting-and-searching/}{Sorting and Searching}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\subsection{88. Merge Sorted Array}
+\href{https://leetcode.com/problems/merge-sorted-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335252401/}{Link to submission}
+\paragraph{Concepts}
+Two Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Create a copy array for nums1
+    \item Maintain write pointer for nums1, p1 for nums1copy, p2 for nums2
+    \item Write smaller of p1, p2 into nums1. Advance smaller and write head.
+    \item Once out of the loop, see which array still has elements remaining. Add them to nums1
+\end{itemize}
+
+\subsection{278. First Bad Version}
+\href{https://leetcode.com/problems/first-bad-version/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335254058/}{Link to submission}
+\paragraph{Concepts}
+Binary Search
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item set left as 0, right as n - 1
+    \item while l <= r
+    \item if mid is bad, right = middle - 1
+    \item else left = middle + 1
+    \item Once you come out of loop, return l
+\end{itemize}
+
+\newpage
+
+\section{Dynamic Programming}
+Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/97/dynamic-programming/569/}{Dynamic Programming}
+
+\subsection{70. Climbing Stairs}
+\href{https://leetcode.com/problems/climbing-stairs/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335398986/}{Link to submission}
+\paragraph{Concepts}
+Dynamic Programming
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Ways to reach ith step = ways to reach i-1 th step plus ways to reach i-2 th step
+\end{itemize}
+
+\subsection{121. Best Time to Buy and Sell Stock}
+\href{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335407441/}{Link to submission}
+\paragraph{Concepts}
+Dynamic Programming
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a current sum variable, denoting the highest sum possible that contains the element at the index
+    \item Maintain a highest sum variable, denoting the highest sum encountered among the current sums
+\end{itemize}
+
+\subsection{198. House Robber}
+\href{https://leetcode.com/problems/house-robber/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335418653/}{Link to submission},
+\href{https://leetcode.com/submissions/detail/335415699/}{Link to submission (space optimized)}
+\paragraph{Concepts}
+Dynamic Programming
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a dp array with dp[0] = nums[0], dp[1] = max(nums[0], nums[1]).
+    dp[i] denotes maximum amount that can be robbed with first i+1 houses
+    \item dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+    \item Finally return dp[n-1]
+\end{itemize}
+
+\newpage
+
+\section{Design}
+Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/98/design/}{Design}
 
 % \subsection{}
 % \href{}{Link to question},

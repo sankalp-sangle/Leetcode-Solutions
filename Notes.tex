@@ -427,6 +427,59 @@ Recursion, Stack
     \item If top is leaf, compare with maxDepth
     \item Push children if any with depth = 1 + parent depth
 \end{itemize}
+
+\subsection{98. Validate Binary Search Tree}
+\href{https://leetcode.com/problems/validate-binary-search-tree/}{Link to question},
+\href{https://leetcode.com/submissions/detail/334300642/}{Link to iterative submission},
+\href{https://leetcode.com/submissions/detail/334297136/}{Link to recursive submission}
+\paragraph{Concepts}
+Top-Down
+\paragraph{Algorithm description (for recursive/iterative)}
+\begin{itemize}
+    \item Approach is a top-down one
+    \item At every node, check if node.val is between a range of [small, large]
+    \item If not, return False
+    \item else check left subtree for range[small, node.val] and check right subtree for range[node.val, large]
+    \item Return the AND of the above two
+\end{itemize}
+
+\subsection{101. Symmetric Tree}
+\href{https://leetcode.com/problems/symmetric-tree/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335199504/}{Link to recursive submission},
+\href{https://leetcode.com/submissions/detail/335199304/}{Link to iterative submission}
+\paragraph{Concepts}
+Top-Down
+\paragraph{Algorithm description (for recursive/iterative)}
+\begin{itemize}
+    \item Top down approach
+    \item Check if leftTree.val == rightTree.val
+    \item If true, check for leftTree.left, rightTree.right and leftTree.right, rightTree.left
+    \item Else, return False
+\end{itemize}
+
+\subsection{102. Binary Tree Level Order Traversal}
+\href{https://leetcode.com/problems/binary-tree-level-order-traversal/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335213120/}{Link to submission}
+\paragraph{Concepts}
+Top-Down, BFS
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Push root
+    \item At beginning of an iteration, take size of queue
+    \item Pop out size items from queue, while adding their children to queue
+    \item Add to level
+\end{itemize}
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}

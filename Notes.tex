@@ -573,6 +573,185 @@ Dynamic Programming
 \section{Design}
 Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/98/design/}{Design}
 
+\subsection{384. Shuffle an Array}
+\href{https://leetcode.com/problems/shuffle-an-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335673163/}{Link to submission}
+\paragraph{Concepts}
+Fisher-Yates Algorithm, Random Permutation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Iterate through the array
+    \item For every iteration, generate an index between [current index, last index]
+    \item Swap elements at current index and generated index
+    \item Return array
+\end{itemize}
+
+\subsection{155. Min Stack}
+\href{https://leetcode.com/problems/min-stack/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335680451/}{Link to submission}
+\paragraph{Concepts}
+Two stacks
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Use one stack to keep track of all elements, and another minstack to keep track of minimums
+    \item Push(x): push x to stack. Push x to minstack only if x less than or equal to top of minstack or if minstack is empty
+    \item Pop(): pop from stack. Pop from minstack if stack.top() == minstack.top()
+    \item getMin(): return minstack.top()
+\end{itemize}
+
+\newpage
+
+\section{Math}
+Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/102/math/}{Math}
+
+\subsection{412. Fizz Buzz}
+\href{https://leetcode.com/problems/fizz-buzz/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335686182/}{Link to submission 1},
+\href{https://leetcode.com/submissions/detail/335700407/}{Link to submission 2 (Easier to maintain)}
+\paragraph{Concepts}
+Divisibility
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Instead of following naive approach of check divisibility by 15 first, then by 3 and 5, use an incremental approach
+    \item Add "Fizz" to answer if divisible by 3
+    \item Add "Buzz" to answer if divisible by 5
+    \item This code is much easier to maintain if more conditions like 7:"Jazz" are added. Also note submission 2, which is
+        even easier to maintain
+\end{itemize}
+
+\subsection{204. Count Primes}
+\href{https://leetcode.com/problems/count-primes/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335711052/}{Link to submission}
+\paragraph{Concepts}
+Number Theory, Math, Primes
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Let's start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be O(n2). Could we do better?
+    \item As we know the number must not be divisible by any number greater than n / 2, we can immediately cut the total iterations half by dividing only up to n / 2. Could we still do better?
+    \item We don't need to go all the way till n / 2. Just stopping at sqrt(n) is enough. Complexity is now O(n to the power 1.5)
+    \item Notice that if we've tested for the number x being prime, we don't need to test for multiples of x being prime anymore.
+    This is the motivation for the Sieve of Eratosthenes. Take a number, if it is not visited, mark all it's multiples excluding itself as visited. Increment number and repeat.
+    \item One optimization is to not start at 2x but to start at x times x, as 2x had already been marked when marking multiples of two.
+    \item Finally, there is no need to go through all numbers till n. We only need to do the sieve for numbers till root of n.
+    \item Answer is count of unvisited elements in visited array
+    \item Definitely look through the final submission for all the optimizations.
+    \item Complexity - O(n log log n)
+\end{itemize}
+
+\subsection{326. Power of Three}
+\href{https://leetcode.com/problems/power-of-three/solution/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335722204/}{Link to submission}
+\paragraph{Concepts}
+Math
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Since they're asking for no loops/recursion (which would be the naive approach), the idea is to find the largest power of 3 that fits in 4 byte size
+    \item If (largest number which is power of 3) \% num == 0, then number is a power of 3
+    \item Bear in mind that this will only work for powers of x where x is a prime number.
+    \item Do look at editorial for a good discussion on logarithms approach as well.
+\end{itemize}
+
+\subsection{13. Roman to Integer}
+\href{https://leetcode.com/problems/roman-to-integer/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335726047/}{Link to submission}
+\paragraph{Concepts}
+Parsing
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain two pointers, current and next, initialized to 0 and 1
+    \item If value at curr greater than equal value at next, add value at curr to answer. Increment both pointers
+    \item Else, add value at next to answer, subtract value at curr to answer, increment both pointers by two.
+    \item Once out of loop, if curr less than string.length(), add value at curr to answer
+    \item Return answer
+    \item Note: this is a left to right pass solution. Also see the right to left pass submission shown in the editorial
+\end{itemize}
+
+\newpage
+
+\section{Others}
+Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-easy/99/others/}{Others}
+
+\subsection{191. Number of 1 Bits}
+\href{https://leetcode.com/problems/number-of-1-bits/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335731817/}{Link to submission}
+\paragraph{Concepts}
+Bit Manipulation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item initialize answer to 0
+    \item While number not equal to 0, set number as (number \& number-1), increment answer
+    \item return answer
+\end{itemize}
+
+\subsection{461. Hamming Distance}
+\href{https://leetcode.com/problems/hamming-distance/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335742515/}{Link to submission}
+\paragraph{Concepts}
+Bit Manipulation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Let A be xor of x and y (xor returns a 1 if the operands are different)
+    \item Count number of set bits in A
+\end{itemize}
+
+\subsection{190. Reverse Bits}
+\href{https://leetcode.com/problems/reverse-bits/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335782937/}{Link to submission 1 (naive)},
+\href{https://leetcode.com/submissions/detail/323297368/}{Link to submission 2 (constant time)}
+\paragraph{Concepts}
+Bit Manipulation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Naive solution is clear, compare bits at opposite ends. If different, flip them
+    \item For constant time, first, we break the original 32-bit into 2 blocks of 16 bits, and switch them. 
+    \item We then break the 16-bits block into 2 blocks of 8 bits. Similarly, we switch the position of the 8-bits blocks 
+    \item We then continue to break the blocks into smaller blocks, until we reach the level with the block of 1 bit. 
+\end{itemize}
+
+\subsection{118. Pascal's Triangle}
+\href{https://leetcode.com/problems/pascals-triangle/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335834624/}{Link to submission}
+\paragraph{Concepts}
+Implementation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Nothing fancy, just construct row by row as mentioned in the description.
+\end{itemize}
+
+\subsection{20. Valid Parentheses}
+\href{https://leetcode.com/problems/valid-parentheses/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335853123/}{Link to submission}
+\paragraph{Concepts}
+Stack
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Iterate through string
+    \item If it's an opening bracket, push onto stack
+    \item Else, if it's not a matching bracket, return False
+    \item If matching bracket, pop from stack
+    \item When you come out of loop, if stack is empty return true
+    \item Return false
+\end{itemize}
+
+\subsection{268. Missing Number}
+\href{https://leetcode.com/problems/missing-number/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335861817/}{Link to submission}
+\paragraph{Concepts}
+Bit Manipulation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item XOR all numbers in the range [0,n] into a variable answer
+    \item Iterate through the array, XORing every element into the answer variable
+    \item Return answer. All elements will have appeared twice, except the missing number
+    which appeared once, and hence is stored in answer variable 
+\end{itemize}
+
+\chapter{Medium}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/}{LeetCode Top Interview Questions: Medium section}.
+
+\section{Array and Strings}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/}{Array and Strings}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}
@@ -582,4 +761,4 @@ Link: \href{https://leetcode.com/explore/featured/card/top-interview-questions-e
 % \begin{itemize}
 %     \item 
 % \end{itemize}
-\end{document}                          % The required last line
+\end{document}

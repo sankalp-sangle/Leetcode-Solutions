@@ -479,7 +479,7 @@ Recursion, Preorder
 \paragraph{Algorithm description}
 \begin{itemize}
     \item call procedure with left = 0, right = arr.size() - 1
-    \item if left > right, return NULL
+    \item if left greater than right, return NULL
     \item construct node for middle element
     \item node.left = procedure(left, middle-1), node.right = procedure(middle+1, right)
     \item return node
@@ -511,7 +511,7 @@ Binary Search
 \paragraph{Algorithm description}
 \begin{itemize}
     \item set left as 0, right as n - 1
-    \item while l <= r
+    \item while l less than equal to r
     \item if mid is bad, right = middle - 1
     \item else left = middle + 1
     \item Once you come out of loop, return l
@@ -751,6 +751,58 @@ Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-
 
 \section{Array and Strings}
 Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/}{Array and Strings}
+
+\subsection{15. 3Sum}
+\href{https://leetcode.com/problems/3sum/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335882786/}{Link to submission}
+\paragraph{Concepts}
+Two Pointer, Sorting
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Sort the array
+    \item Traverse from left. For each iteration, fix target as -1 * nums[i]
+    \item Maintain left ptr as i+1, and right ptr as end of arrays
+    \item Search if sum of values at left and right equals target
+    \item If so, add triplet to answer. Move left and right pointers along accordingly
+    \item Take care to write loops to skip over duplicate values at left, right and i. Avoids TLE.
+\end{itemize}
+
+\subsection{73. Set Matrix Zeroes}
+\href{https://leetcode.com/problems/set-matrix-zeroes/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335922950/}{Link to submission}
+\paragraph{Concepts}
+Space Optimization, In Place
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Set boolean variables to decide if first row and first column need setting to zero
+    \item Traverse matrix (excluding first row and first column)
+    \item Wherever arr[i][j] == 0, set arr[i][0] and arr[0][j] as 0
+    \item Traverse matrix (excluding first row and first column). If arr[i][0] == 0 or arr[0][j] == 0, set arr[i][j] = 0
+    \item Finally, set first row and first column as zero if needed, as decided in first step
+\end{itemize}
+
+\subsection{49. Group Anagrams}
+\href{https://leetcode.com/problems/group-anagrams/}{Link to question},
+\href{https://leetcode.com/submissions/detail/335928725/}{Link to submission}
+\paragraph{Concepts}
+Sorting, Hashtable
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Set up a map of string, vector<string>
+    \item Traverse array
+    \item For a string, sort it, and append original string to vector at hashed value of sorted string
+    \item Finally, append all vectors to an answer array and return the array
+\end{itemize}
+
+% \subsection{}
+% \href{}{Link to question},
+% \href{}{Link to submission}
+% \paragraph{Concepts}
+
+% \paragraph{Algorithm description}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
 
 % \subsection{}
 % \href{}{Link to question},

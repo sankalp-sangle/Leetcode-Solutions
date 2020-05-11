@@ -794,6 +794,70 @@ Sorting, Hashtable
     \item Finally, append all vectors to an answer array and return the array
 \end{itemize}
 
+\subsection{3. Longest Substring Without Repeating Characters}
+\href{https://leetcode.com/problems/longest-substring-without-repeating-characters/}{Link to question},
+\href{https://leetcode.com/submissions/detail/336804625/}{Link to submission}
+\paragraph{Concepts}
+Sliding Window, HashMap, Two Pointer
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Initialize left and right both at 0
+    \item Advance right as you keep getting characters and store their indexes in a map. Keep updating maxLen as max(maxLen, r - l + 1)
+    \item The moment you get a repeated character, delete all entries in the map for characters from left ptr to first occurence of repeated character.
+    \item Then, update position of left to one index after the first occurence of repeated character, as well as update the first occurence of repeated character as the right pointer.
+    \item Return maxLen
+\end{itemize}
+
+\subsection{5. Longest Palindromic Substring}
+\href{https://leetcode.com/problems/longest-palindromic-substring/}{Link to question},
+\href{https://leetcode.com/submissions/detail/337683777/}{Link to submission},
+\href{https://leetcode.com/submissions/detail/337711978/}{Link to DP submission}
+\paragraph{Concepts}
+DP, Two Pointer
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Start at each of the 2 * len - 1 possible centres of the string.
+    \item Keep expanding outside until palindrome.
+    \item Store longest palindrome in answer and return answer
+\end{itemize}
+\paragraph{DP description}
+\begin{itemize}
+    \item dp[i][i] = true, dp[i][i+1] = true if s[i] == s[i+1]
+    \item dp[i][j] = true if dp[i+1][j-1] == true and s[i] == s[j]
+    \item Finally return s.substr(starting index, maxLength)
+    \item Do look at implementation to see how dp array is filled. Order is not top to bottom, left to right. It is filled in a diamond shaped manner. Remember DAA course? That way.
+\end{itemize}
+
+\subsection{334. Increasing Triplet Subsequence}
+\href{https://leetcode.com/problems/increasing-triplet-subsequence/}{Link to question},
+\href{https://leetcode.com/submissions/detail/328930482/}{Link to submission}
+\paragraph{Concepts}
+If-Else
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Keep a smallest and a second smallest, both initialized at INT MAX
+    \item Traverse the array
+    \item If number less than equal to smallest, update smallest
+    \item Else if number less than equal to second smallest, update second smallest
+    \item Else return true
+\end{itemize}
+
+\subsection{163. Missing Ranges}
+\href{https://leetcode.com/problems/missing-ranges/}{Link to question},
+\href{https://leetcode.com/submissions/detail/337760992/}{Link to submission}
+\paragraph{Concepts}
+Arrays, Implementation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Create a new long datatype vector out of integers of nums
+    \item Push lower - 1 and upper + 1 to long vector
+    \item Generate a differences array 
+    \item If difference < 2, continue
+    \item If difference equals 2, push back longarray[i]+1 to answer
+    \item Else push back (longarray[i]+1)->(longarray[i+1] - 1) to answer
+    \item Return answer
+\end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}

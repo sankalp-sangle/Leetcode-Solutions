@@ -858,15 +858,49 @@ Arrays, Implementation
     \item Return answer
 \end{itemize}
 
-% \subsection{}
-% \href{}{Link to question},
-% \href{}{Link to submission}
-% \paragraph{Concepts}
+\section{Linked List}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/}{Linked List}
 
-% \paragraph{Algorithm description}
-% \begin{itemize}
-%     \item 
-% \end{itemize}
+\subsection{2. Add Two Numbers}
+\href{https://leetcode.com/problems/add-two-numbers/}{Link to question},
+\href{https://leetcode.com/submissions/detail/337941956/}{Link to submission}
+\paragraph{Concepts}
+Linked List
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Recursive algorithm, construct new node as sum of l1, l2 and carry.
+    \item Let next of new node be answer to recursion call for l1.next, l2.next and new carry.
+    \item Return new node
+\end{itemize}
+
+\subsection{328. Odd Even Linked List}
+\href{https://leetcode.com/problems/odd-even-linked-list/}{Link to question},
+\href{https://leetcode.com/submissions/detail/337950330/}{Link to submission}
+\paragraph{Concepts}
+Linked List Manipulation
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain a current pointer. Set curr.next as curr.next.next. Advance the current pointer.
+    \item Finally link the end of the odd list to the start of the even list.
+\end{itemize}
+
+\subsection{160. Intersection of Two Linked Lists}
+\href{https://leetcode.com/problems/intersection-of-two-linked-lists/}{Link to question},
+\href{https://leetcode.com/submissions/detail/329638899/}{Link to approach 1},
+\href{https://leetcode.com/submissions/detail/337973211/}{Link to approach 2}
+\paragraph{Concepts}
+Two pointers, modulus, Smart
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Push the pointer for the larger list forward by x times where x is difference between length of larger and smaller lists.
+    \item Then, while pointer 1 doesn't equal pointer 2, keep advancing both.
+    \item Return pointer 1
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Keep advancing both pointers. If either one reaches the end, shift it to start of other's head and save the last node of the list.
+    \item If they ever match, return the match. Else if their last nodes are both not NULL but different, return NULL (Means no intersection at all).
+\end{itemize}
 
 % \subsection{}
 % \href{}{Link to question},

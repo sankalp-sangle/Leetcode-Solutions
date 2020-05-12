@@ -184,7 +184,7 @@ Hash Table, Set
 \href{https://leetcode.com/problems/rotate-image/}{Link to question},
 \href{https://leetcode.com/submissions/detail/333188499/}{Link to submission}
 \paragraph{Concepts}
-Array, Circular Permutation
+Array, Circular Permutation, Implementation Heavy
 \paragraph{Algorithm description}
 \begin{itemize}
     \item Do a counterclockwise circular permutation as mentioned in solution
@@ -813,7 +813,7 @@ Sliding Window, HashMap, Two Pointer
 \href{https://leetcode.com/submissions/detail/337683777/}{Link to submission},
 \href{https://leetcode.com/submissions/detail/337711978/}{Link to DP submission}
 \paragraph{Concepts}
-DP, Two Pointer
+DP, Two Pointer, Implementation Heavy
 \paragraph{Approach 1 description}
 \begin{itemize}
     \item Start at each of the 2 * len - 1 possible centres of the string.
@@ -902,6 +902,123 @@ Two pointers, modulus, Smart
     \item If they ever match, return the match. Else if their last nodes are both not NULL but different, return NULL (Means no intersection at all).
 \end{itemize}
 
+\section{Trees and Graphs}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/}{Trees and Graphs}
+
+\subsection{94. Binary Tree Inorder Traversal}
+\href{https://leetcode.com/problems/binary-tree-inorder-traversal/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338200298/}{Link to iterative submission},
+\href{https://leetcode.com/submissions/detail/338194239/}{Link to recursive submission}.
+\paragraph{Concepts}
+Stack, Tree, Inorder
+\paragraph{Iterative Algorithm description}
+\begin{itemize}
+    \item Recursive is trivial. Left, Middle, Right.
+    \item For iterative, before starting while loop, keep pushing root into stack, and setting root as root.left
+    \item Now, inside the while loop, pop the top. Push back top to inorder vector. If top.right, exists, keep pushing top.right to stack and setting top.right to it's left subtree.
+\end{itemize}
+
+\subsection{103. Binary Tree Zigzag Level Order Traversal}
+\href{https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338220725/}{Link to submission}
+\paragraph{Concepts}
+Queue, Level Order Traversal
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Same as a level order traversal, just flip each alternate level before adding to answer array
+\end{itemize}
+
+\subsection{105. Construct Binary Tree from Preorder and Inorder Traversal}
+\href{https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338231098/}{Link to submission}
+\paragraph{Concepts}
+Inorder, Preorder, Recursion, Implementation Heavy
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Construct a mapping of ele:index in inorder arrays
+    \item Recursively construct the binary tree using helper(inorder, preorder, left index, right index, mapping)
+    \item If left > right, return NULL
+    \item Else, construct node with value as preorder[0]
+    \item Pop front of preorder
+    \item node.left is helper(inorder, preorder, left index, mapping[node.value] - 1, mapping)
+    \item node.right is helper(inorder, preorder, mapping[node.value] + 1, right index, mapping)
+    \item return node
+\end{itemize}
+
+\subsection{116. Populating Next Right Pointers in Each Node}
+\href{https://leetcode.com/problems/populating-next-right-pointers-in-each-node/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338234563/}{Link to level order submission},
+\href{https://leetcode.com/submissions/detail/338238274/}{Link to recursive submission},
+\href{https://leetcode.com/submissions/detail/338241582/}{Link to iterative submission}.
+\paragraph{Concepts}
+Level Order Traversal, Recursion
+\paragraph{Level Order Algorithm description}
+\begin{itemize}
+    \item Go via a level order traversal
+    \item For each level, link (i)th node.next = (i+1)th node
+\end{itemize}
+\paragraph{Recursive Algorithm description}
+\begin{itemize}
+    \item Top down approach
+    \item Assume you're at a level i, and the i-1th has next links established. You have the leftmost node at ith level, and it's parent at i-1th level.
+    \item Set current node = leftmost node. If current node is a left node, set next as right node of parent. If current node is a right node, set next as left node of next of parent.
+    \item Advance current, and parent nodes accordingly.
+    \item Finally, call function for (leftmost.left, leftmost)
+    \item Return leftmost
+\end{itemize}
+\paragraph{Iterative Algorithm description}
+\begin{itemize}
+    \item Same algorithm as above, you just form linkages for i+1th level, while having already established linkages for the ith level which you are on.
+    \item Set leftmost node to root. While leftmost.left != NULL, proceed as follows
+    \item Set curr = leftmost. Set curr.left.next as curr.right. Set curr.right.next = curr.next.left. Keep advancing curr.
+    \item Set leftmost = leftmost.left
+    \item Finally, return root
+\end{itemize}
+
+\subsection{230. Kth Smallest Element in a BST}
+\href{https://leetcode.com/problems/kth-smallest-element-in-a-bst/}{Link to question},
+\href{https://leetcode.com/submissions/detail/329744905/}{Link to approach 1},
+\href{https://leetcode.com/submissions/detail/338352974/}{Link to approach 2}.
+\paragraph{Concepts}
+Inorder
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Find inorder array
+    \item Return inorder[k-1]
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Traverse tree inorder. Once you visit k nodes, return value at current node.
+\end{itemize}
+
+\subsection{285. Inorder Successor in BST}
+\href{https://leetcode.com/problems/inorder-successor-in-bst/}{Link to question},
+\href{https://leetcode.com/submissions/detail/329750456/}{Link to approach 1},
+\href{https://leetcode.com/submissions/detail/338358126/}{Link to approach 2}.
+\paragraph{Concepts}
+Inorder
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Find inorder array
+    \item Return node that is next in line after node to be searched for
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Traverse tree inorder. Once you reach node to be searched for, return the very next node you find.
+\end{itemize}
+
+\subsection{200. Number of Islands}
+\href{https://leetcode.com/problems/number-of-islands/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338367817/}{Link to DFS submission}
+\href{https://leetcode.com/submissions/detail/330130757/}{Link to BFS submission}.
+\paragraph{Concepts}
+BFS / DFS
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Simple problem of finding connected components in a graph
+    \item Use either BFS or DFS
+\end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}
@@ -911,4 +1028,5 @@ Two pointers, modulus, Smart
 % \begin{itemize}
 %     \item 
 % \end{itemize}
+
 \end{document}

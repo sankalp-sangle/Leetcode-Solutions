@@ -1019,6 +1019,123 @@ BFS / DFS
     \item Use either BFS or DFS
 \end{itemize}
 
+\section{Backtracking}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/109/backtracking/}{Backtracking}
+
+\subsection{17. Letter Combinations of a Phone Number}
+\href{https://leetcode.com/problems/letter-combinations-of-a-phone-number/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338717840/}{Link to submission}
+\paragraph{Concepts}
+Backtracking, Recursion
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item For every letter corresponding to an index of string, add it to the string and keep searching for further possibilites
+    \item Add to answer once you reach end of string
+\end{itemize}
+
+\subsection{22. Generate Parentheses}
+\href{https://leetcode.com/problems/generate-parentheses/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338719320/}{Link to submission}
+\paragraph{Concepts}
+Backtracking, Recursion, Stack
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Maintain an integer variable to act as a counter. It increments if "(" is added and decrements if ")" is added.
+    \item If at any point if counter goes negative, backtrack
+    \item If index reaches end of string and counter is zero as well, add to answer
+\end{itemize}
+
+\subsection{46. Permutations}
+\href{https://leetcode.com/problems/permutations/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338753817/}{Link to submission}
+\paragraph{Concepts}
+Backtracking, Recursion, Permutations
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item For every position i from index to end of string, swap i with index, and make the call on string with index = index + 1
+    \item Remember to swap back before the next i
+    \item When index reaches length of string, add to answer
+\end{itemize}
+
+\subsection{78. Subsets}
+\href{https://leetcode.com/problems/subsets/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338759211/}{Link to submission}
+\paragraph{Concepts}
+Backtracking, Recursion
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item For element at current index, add it to current subset. Call helper for next index.
+    \item Once you return from helper, pop from current subset and call helper again for next index.
+    \item Whenever you reach index == set.length(), add current subset to answer
+\end{itemize}
+
+\subsection{79. Word Search}
+\href{https://leetcode.com/problems/word-search/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338952848/}{Link to submission}
+\paragraph{Concepts}
+DFS
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Once you see that the first character has matched, start a DFS for the rest of the string
+    \item Algorithm is difficult to implement taking care of all edge cases, definitely implement it once.
+\end{itemize}
+
+\section{Sorting and Searching}
+Link: \href{https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/}{Sorting and Searching}
+
+\subsection{75. Sort Colors}
+\href{https://leetcode.com/problems/sort-colors/}{Link to question},
+\href{https://leetcode.com/submissions/detail/338972134/}{Link to submission}
+\paragraph{Concepts}
+Hashtable, 2 Pointers
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item One approach is to simply keep a count of elements in first pass, and overwrite array in second pass accordingly.
+    \item Question asks for one pass approach.
+    \item Keep a write end for zeroes, at start of array, and a write end for twos , at the end of the array.
+    \item Let a read pointer go from start to right end.
+    \item If it encounters a 0, swap with left end. Increment both left end and read end.
+    \item If it encounters a 1, continue
+    \item If it encounters a 2, swap with right end. Decrement right end but DO NOT increment read end as the element coming from the right end 
+    also needs to be put in place.
+\end{itemize}
+
+\subsection{347. Top K Frequent Elements}
+\href{https://leetcode.com/problems/top-k-frequent-elements/}{Link to question},
+\href{https://leetcode.com/submissions/detail/339839836/}{Link to submission}
+\paragraph{Concepts}
+Priority Queue/ Sorting
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Build a hashmap of character frequencies
+    \item Insert pair of (frequency, character) into a priority queue/ vector
+    \item Either sort the vector and return last k elements, or pop k elements from the priority queue
+\end{itemize}
+
+\subsection{215. Kth Largest Element in an Array}
+\href{https://leetcode.com/problems/kth-largest-element-in-an-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/339856317/}{Link to submission}
+\paragraph{Concepts}
+Priority Queue/ Sorting, Quick Select
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Sort in descending and return the kth element from the beginning
+    \item Or use a priority queue and maintain its max length as k. After insertion of all elements, keep popping and return the last
+    \item OR, use quick select. Very important, see solution for more details. Average running time complexity is O(n), worst is O(n**2)
+\end{itemize}
+
+\subsection{162. Find Peak Element}
+\href{https://leetcode.com/problems/find-peak-element/}{Link to question},
+\href{https://leetcode.com/submissions/detail/339879552/}{Link to submission}
+\paragraph{Concepts}
+Binary Search
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item If element is lesser than the one on its right, search in right subarray (since it's now guaranteed to have a peak)
+    \item Else if element is lesser than the one on its left, search in left subarray (since it's now guaranteed to have a peak)
+    \item Else return index of element. (Since it's a peak as it's larger than both)
+\end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}
@@ -1028,5 +1145,4 @@ BFS / DFS
 % \begin{itemize}
 %     \item 
 % \end{itemize}
-
 \end{document}

@@ -1136,6 +1136,86 @@ Binary Search
     \item Else return index of element. (Since it's a peak as it's larger than both)
 \end{itemize}
 
+\subsection{34. Find First and Last Position of Element in Sorted Array}
+\href{https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/339891358/}{Link to submission}
+\paragraph{Concepts}
+Binary Search
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item First, find any occurence of the element in sorted array using binary search
+    \item Search from 0 to found index to find first occurence
+    \item Search from found indec to end to find last occurence
+\end{itemize}
+
+\subsection{56. Merge Intervals}
+\href{https://leetcode.com/problems/merge-intervals/}{Link to question},
+\href{https://leetcode.com/submissions/detail/340117441/}{Link to submission}
+\paragraph{Concepts}
+Two Pointer
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Go through array, maintaining a current and a next pointer
+    \item If overlap between current and next, then merge the two into current and keep advancing next until no overlap
+    \item Add current interval to answer and update the two pointers accordingly
+\end{itemize}
+
+\subsection{33. Search in Rotated Sorted Array}
+\href{https://leetcode.com/problems/search-in-rotated-sorted-array/}{Link to question},
+\href{https://leetcode.com/submissions/detail/340133304/}{Link to submission}
+\paragraph{Concepts}
+Binary Search
+\paragraph{Algorithm description}
+\begin{itemize}
+    \item Find a rotation index rotationIndex, i.e. index of the largest element in the array using binary search.
+    \item rotationIndex splits array in two parts. Compare nums[0] and target to identify in which part one has to look for target.
+    \item Perform a binary search in the chosen part of the array.
+\end{itemize}
+
+\subsection{253. Meeting Rooms II}
+\href{https://leetcode.com/problems/meeting-rooms-ii/}{Link to question},
+\href{https://leetcode.com/submissions/detail/340355885/}{Link to approach 1},
+\href{https://leetcode.com/submissions/detail/340279708/}{Link to approach 2}
+\paragraph{Concepts}
+Two pointers, Priority Queue
+\paragraph{Approach 1 description}
+\begin{itemize}
+    \item Create start times and end times arrays respectively and sort them
+    \item Let a current pointer and a end pointer run from start of start array and start of end array respectively
+    \item While current pointer < starts.length, do the following
+    \item If value at current pointer is less than value at end pointer (corresponding to a meeting starting while none of the existing meetings have finished), increment the answer variable. Increment start pointer.
+    \item Else, increment the end pointer (corresponds to situation where a meeting ended before current meeting started, so there was no need to assign a new room). Increment both current and end pointer
+    \item Return answer
+\end{itemize}
+\paragraph{Approach 2 description}
+\begin{itemize}
+    \item Sort the meetings array
+    \item Insert into a priority queue (minHeap) end time of first meeting
+    \item Traverse the remaining meetings array
+    \item If current meeting's start time is greater than or equal to top of priority queue, pop pq and insert ending time of current meeting (corresponding to reusing that room)
+    \item Else, just insert ending time of current meeting. (Implying needed to use a new room)
+    \item Finally, return size of priority queue.
+\end{itemize}
+
+\subsection{240. Search a 2D Matrix II}
+\href{https://leetcode.com/problems/search-a-2d-matrix-ii/}{Link to question},
+\href{https://leetcode.com/submissions/detail/340382596/}{Link to submission 1},
+\href{https://leetcode.com/submissions/detail/340384118/}{Link to submission 2}
+\paragraph{Concepts}
+Binary Search, Search Space Reduction
+\paragraph{Algorithm 1 description}
+\begin{itemize}
+    \item Either do a binary search,, splitting into 4 sub matrices and searching 3 of them based on a condition
+\end{itemize}
+\paragraph{Algorithm 2 description}
+\begin{itemize}
+    \item Or, start at top right.
+    \item If target is less than current, move left.
+    \item Else if target greater, move bottom.
+    \item Else return true
+    \item If go out of matrix, return false
+\end{itemize}
+
 % \subsection{}
 % \href{}{Link to question},
 % \href{}{Link to submission}
